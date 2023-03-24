@@ -1,23 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 
-export default function Square() {
+export default function Board() {
   return (
     <React.Fragment>
-            <div className="board-row">
-        <button className="square">1</button>
-        <button className="square">2</button>
-        <button className="square">3</button>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
       </div>
       <div className="board-row">
-        <button className="square">4</button>
-        <button className="square">5</button>
-        <button className="square">6</button>
+        <Square />
+        <Square />
+        <Square />
       </div>
       <div className="board-row">
-        <button className="square">7</button>
-        <button className="square">8</button>
-        <button className="square">9</button>
+        <Square />
+        <Square />
+        <Square />
       </div>
     </React.Fragment>
   );
+  function Square() {
+    const [value, setValue] = useState(null);
+    function handleClick(){
+      setValue('X');
+    }
+    return <button onClick={handleClick} className="square">{value}</button>;
+  }
 }
